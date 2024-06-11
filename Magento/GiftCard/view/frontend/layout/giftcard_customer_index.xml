@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <referenceContainer name="content">
+        <block class="Magento\GiftCard\Block\GiftCardHistory" name="helloworld_index_test" template="Magento_HelloWorld::test.phtml" />
+        <block class="Magento\HelloWorld\Block\Test" name="helloworld_index_test1" template="Magento_HelloWorld::test.phtml" />
+        <block class="Magento\HelloWorld\Block\Test" name="helloworld_index_test2" template="Magento_HelloWorld::test.phtml" />
+    </referenceContainer>
+</page>

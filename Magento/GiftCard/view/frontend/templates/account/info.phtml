@@ -1,0 +1,97 @@
+<?php
+/** @var \Magento\GiftCard\Block\Account\Info $block */
+/** @var \Magento\Framework\Stdlib\DateTime\TimezoneInterface $timezoneInterface */
+$timezoneInterface = \Magento\Framework\App\ObjectManager::getInstance()->get(\Magento\Framework\Stdlib\DateTime\TimezoneInterface::class);
+$pricingHelper = \Magento\Framework\App\ObjectManager::getInstance()->get(\Magento\Framework\Pricing\Helper\Data::class);
+?>
+<div class="block block-dashboard-info">
+    <div class="block-title"><strong><?= $block->escapeHtml(__('Gift Card Information')) ?></strong></div>
+    <div class="block-content">
+        <div class="box box-information">
+            <strong class="box-title">
+                <span><?= $block->escapeHtml(__('Balance')) ?></span>
+            </strong>
+            <div class="box-content">
+                <p>
+                    <?= $pricingHelper->currency($block->escapeHtml($block->getGiftCardBalance()), true, false)  ?>
+                </p>
+                <?= $block->getChildHtml('customer.account.dashboard.info.extra'); ?>
+            </div>
+        </div>
+            <div class="box box-newsletter">
+                <strong class="box-title">
+                    <span><?= $block->escapeHtml(__('Redeem')) ?></span>
+                </strong>
+                <div class="box-content">
+                    <form class="form subscribe"
+                          novalidate
+                          action="<?= $block->getUrl('giftcard/index/redeem') ?>"
+                          method="post"
+                          data-mage-init='{"validation": {"errorClass": "mage-error"}}'
+                          id="giftcard_id">
+                        <div class="field newsletter">
+                            <div class="control" style="display: flex;">
+                                <label for="newsletter">
+                                    <input name="gift" type="text" id="newsletter"
+                                           data-mage-init='{"mage/trim-input":{}}'
+                                        <?php if ($block->isGiftCardEnabled() != 1):?>
+                                            disabled="disabled"
+                                            placeholder="<?= $block->escapeHtml(__('Cannot redeem gift card')) ?>"
+                                        <?php else:?>
+                                            placeholder="<?= $block->escapeHtml(__('Enter gift card code')) ?>"
+                                        <?php endif; ?>
+                                    />
+                                </label>
+                                <button class="action subscribe primary"
+                                        title="<?= $block->escapeHtmlAttr(__('Redeem')) ?>"
+                                        type="submit"
+                                        aria-label="Subscribe">
+                                    <span><?= $block->escapeHtml(__('Redeem')) ?></span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        <?= $block->getChildHtml('additional_blocks'); ?>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="block-title">
+        <strong><?= $block->escapeHtml(__('History')) ?></strong>
+        </strong>
+    </div>
+    <div class="custom-table-container">
+        <table class="custom-table">
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>Code</th>
+                <th>Amount</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <?php if ($block->getGiftCardCodes() && $block->getGiftCardCodes()->getSize() > 0): ?>
+                <tbody>
+<!--                --><?php //dd($block->getGiftCardCodes()->getData() );?>
+                <?php foreach ($block->getGiftCardCodes()->getData() as $giftCardCode): ?>
+<!--                    --><?php //dd($giftCardCode['time_occurred'] );?>
+                    <tr>
+                        <td><?= $timezoneInterface->formatDateTime($giftCardCode['action_time'], \IntlDateFormatter::MEDIUM, \IntlDateFormatter::MEDIUM) ?></td>
+                        <td><?= $giftCardCode['code'] ?></td>
+                        <td><?= $pricingHelper->currency($giftCardCode['amount'], true, false)  ?></td>
+                        <td><?= $giftCardCode['action'] ?></td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            <?php else: ?>
+                <tbody>
+                <tr>
+                    <td colspan="4"><?= __('No Gift Card history available.') ?></td>
+                </tr>
+                </tbody>
+            <?php endif; ?>
+        </table>
+    </div>
+</div>

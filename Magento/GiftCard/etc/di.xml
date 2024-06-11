@@ -1,0 +1,25 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="magento_giftcart_gift_listing_data_source" xsi:type="string">GiftCardVirtualType</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="GiftCardVirtualType" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">giftcard_code</argument>
+            <argument name="resourceModel" xsi:type="string">Magento\GiftCard\Model\ResourceModel\Gift</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Magento\Sales\Controller\Adminhtml\Order\Invoice\Save">
+        <plugin name="before_save_invoice" type="Magento\GiftCard\Plugin\BeforeSaveInvoice" sortOrder="10" disabled="false" />
+    </type>
+    <type name="Magento\Checkout\Block\Cart\Coupon">
+        <plugin name="magento_giftcard_cart_coupon_plugin" type="Magento\GiftCard\Plugin\CartCouponPlugin" />
+    </type>
+    <type name="Magento\Checkout\Controller\Cart\CouponPost">
+        <plugin name="giftcard_coupon_post_plugin" type="Magento\GiftCard\Plugin\Checkout\Cart\CouponPostPlugin" />
+    </type>
+</config>

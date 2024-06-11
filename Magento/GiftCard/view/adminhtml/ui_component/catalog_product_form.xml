@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/ui_configuration.xsd">
+    <body>
+        <referenceContainer name="product_form">
+            <container name="gift_container" label="Gift" sortOrder="20" component="Magento_Ui/js/form/components/group">
+                <field name="gift">
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="label" xsi:type="string" translate="true">Gift</item>
+                            <item name="dataType" xsi:type="string">text</item>
+                            <item name="formElement" xsi:type="string">input</item>
+                            <item name="source" xsi:type="string">product</item>
+                            <item name="dataScope" xsi:type="string">gift</item>
+                        </item>
+                    </argument>
+                </field>
+            </container>
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="editor"/>
+    <body>
+        <referenceContainer name="content">
+            <block class="Magento\GiftCard\Block\Adminhtml\Gift\NewAction" name="magento_giftcard_gift_new_action"/>
+        </referenceContainer>
+        <referenceContainer name="left">
+            <block class="Magento\GiftCard\Block\Adminhtml\Gift\NewAction\Tabs" name="mageplaza_giftcard_gift_tabs">
+                <block class="Magento\GiftCard\Block\Adminhtml\Gift\NewAction\Tab\Gift" name="mageplaza_giftcard_gift_new_action_tab_gift"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">gift</argument>
+                    <argument name="block" xsi:type="string">mageplaza_giftcard_gift_new_action_tab_gift</argument>
+                </action>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

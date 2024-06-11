@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="checkout_submit_all_after">
+        <observer name="gift_checkout_submit_all_after" instance="Magento\GiftCard\Observer\CheckoutSubmitAllAfter" />
+    </event>
+    <event name="custom_send_email_event">
+        <observer name="giftcard_send_email" instance="Magento\GiftCard\Observer\SendEmail" />
+    </event>
+</config>

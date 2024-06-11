@@ -1,0 +1,71 @@
+<?php
+// phpcs:disable Generic.Files.LineLength.TooLong
+
+/**
+ * @var \Magento\Framework\View\Element\AbstractBlock $block
+ * @var \Magento\Checkout\Model\Session $checkoutSession
+ */
+$checkoutSession = \Magento\Framework\App\ObjectManager::getInstance()->get(\Magento\Checkout\Model\Session::class);
+$customCouponCode = $checkoutSession->getCustomCouponCode()!== null && strlen($checkoutSession->getCustomCouponCode()) > 0;
+//dd($checkoutSession->getCustomCouponCode());
+$hasCouponCode = $block->getCouponCode() !== null && strlen($block->getCouponCode()) > 0;
+
+?>
+<div class="block discount"
+     id="block-giftcard-discount"
+     data-mage-init='{"collapsible":{"active": <?= $customCouponCode ? 'true' : 'false' ?>, "openedState": "active", "saveState": false}}'>
+    <div class="title" data-role="title">
+        <strong id="block-giftcard-discount-heading" role="heading" aria-level="2"><?= $block->escapeHtml(__('Apply Gift Card Code')) ?></strong>
+    </div>
+    <div class="content" data-role="content" aria-labelledby="block-giftcard-discount-heading">
+        <form id="giftcard-coupon-form"
+              action="<?= $block->escapeUrl($block->getUrl('giftcard/cart/couponPost')) ?>"
+              method="post"
+              data-mage-init='{"discountCode":{"couponCodeSelector": "#giftcard_coupon_code",
+                                               "removeCouponSelector": "#remove-giftcard-coupon",
+                                               "applyButton": "button.action.applygift",
+                                               "cancelButton": "button.action.cancelgift"}}'>
+            <div class="fieldset coupon<?= $customCouponCode ? ' applied' : '' ?>">
+                <input type="hidden" name="remove_giftcard" id="remove-giftcard-coupon" value="0" />
+                <div class="field">
+                    <label for="giftcard_coupon_code" class="label">
+                        <span><?= $block->escapeHtml(__('Enter gift card code')) ?></span>
+                    </label>
+                    <div class="control">
+                        <input type="text"
+                               class="input-text"
+                               id="giftcard_coupon_code"
+                               name="coupon_code"
+                               value="<?php echo $checkoutSession->getCustomCouponCode() ?>"
+                               placeholder="<?= $block->escapeHtmlAttr(__('Enter gift card code')) ?>"
+                            <?php if ($customCouponCode): ?>
+                                disabled="disabled"
+                                placeholder="<?= $block->escapeHtmlAttr(__('Enter gift card code')) ?>"
+                            <?php endif; ?>
+                        />
+                    </div>
+                </div>
+                <div class="actions-toolbar">
+                    <?php if (!$customCouponCode): ?>
+                        <div class="primary">
+                            <button class="action applygift primary" type="button"
+                                    value="<?= $block->escapeHtmlAttr(__('Apply Gift Card')) ?>">
+                                <span><?= $block->escapeHtml(__('Apply Gift Card')) ?></span>
+                            </button>
+                        </div>
+                    <?php else: ?>
+                        <div class="primary">
+                            <button  type="button" class="action cancelgift primary"
+                                     value="<?php echo $checkoutSession->getCustomCouponCode() ?>">
+                                <span><?= $block->escapeHtml(__('Cancel Gift Card')) ?></span>
+                            </button>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            </div>
+            <?php if (!$customCouponCode): ?>
+                <?= /* @noEscape */ $block->getChildHtml('captcha') ?>
+            <?php endif; ?>
+        </form>
+    </div>
+</div>

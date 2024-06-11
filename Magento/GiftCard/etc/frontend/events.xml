@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+<!--    <event name="controller_action_predispatch_checkout_cart_couponPost">-->
+<!--        <observer name="custom_coupon_post_observer" instance="Magento\GiftCard\Observer\CouponPostObserver" />-->
+<!--    </event>-->
+    <event name="checkout_submit_all_after">
+        <observer name="giftcard_checkout_submit_all_after" instance="Magento\GiftCard\Observer\CheckoutSubmitAllAfter" />
+    </event>
+</config>

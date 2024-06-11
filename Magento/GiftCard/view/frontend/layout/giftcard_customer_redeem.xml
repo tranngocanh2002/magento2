@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="Vendor\GiftCard\Block\Customer\GiftCardBalance" name="customer_giftcard_balance" template="Vendor_GiftCard::customer/giftcard_balance.phtml"/>
+            <block class="Vendor\GiftCard\Block\Customer\RedeemForm" name="customer_giftcard_redeem_form" template="Vendor_GiftCard::customer/redeem_form.phtml"/>
+            <block class="Vendor\GiftCard\Block\Customer\GiftCardHistory" name="customer_giftcard_history" template="Vendor_GiftCard::customer/giftcard_history.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

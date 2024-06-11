@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <giftcard_section_id>
+            <general>
+                <enable>1</enable>
+                <checkout>1</checkout>
+                <redeem>0</redeem>
+            </general>
+            <general_test>
+                <code_length>12</code_length>
+            </general_test>
+        </giftcard_section_id>
+    </default>
+</config>
