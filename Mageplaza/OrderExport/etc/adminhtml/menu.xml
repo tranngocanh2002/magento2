@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_OrderExport
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Mageplaza_OrderExport::order_export_menu" title="Order Export" module="Mageplaza_OrderExport" sortOrder="45" resource="Mageplaza_OrderExport::order_export_menu" parent="Magento_Sales::sales"/>
+        <add id="Mageplaza_OrderExport::manage_profiles" title="Manage Profiles" module="Mageplaza_OrderExport" sortOrder="10" action="mporderexport/manageprofiles" resource="Mageplaza_OrderExport::manage_profiles" parent="Mageplaza_OrderExport::order_export_menu"/>
+        <add id="Mageplaza_OrderExport::logs" title="Logs" module="Mageplaza_OrderExport" sortOrder="20" action="mporderexport/logs" resource="Mageplaza_OrderExport::logs" parent="Mageplaza_OrderExport::order_export_menu"/>
+        <add id="Mageplaza_OrderExport::configuration" title="Configuration" module="Mageplaza_OrderExport" sortOrder="30" action="adminhtml/system_config/edit/section/mp_order_export" resource="Mageplaza_OrderExport::configuration" parent="Mageplaza_OrderExport::order_export_menu"/>
+    </menu>
+</config>

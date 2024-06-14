@@ -1,0 +1,358 @@
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_OrderExport
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+#insert-variable-popup .attr-code {
+    margin-left: 20px;
+}
+
+#insert-variable-popup .group-label {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.modifier {
+    margin-top: 3px;
+}
+
+label.liquid-variable {
+    float: right;
+    margin-right: 50px;
+    max-width: 60%;
+    padding: 2px 4px;
+    font-size: 90%;
+    color: #c7254e;
+    border-radius: 4px;
+}
+
+#insert-variable-popup input.modifier-param {
+    width: 50px;
+}
+
+#insert-variable-popup .modifier-param {
+    margin: 0 5px;
+}
+
+#insert-variable-popup .modifier select, #insert-variable-popup .modifier .params {
+    margin-right: 20px;
+    float: left;
+    width: auto;
+}
+
+.remove-modifier {
+    float: right;
+    margin: 2px 60px 2px 2px;
+}
+
+.attr-code {
+    border: 1px solid #f1f1f1;
+    margin: 5px;
+    width: 80%;
+}
+
+.attr-code-label {
+    font-weight: 500;
+    padding-left: 1em;
+}
+
+#insert-variable-popup .row {
+    background: #f1f1f1;
+    line-height: 2;
+}
+
+#insert-variable-popup button.insert, button.add-modifier {
+    float: right;
+    margin-right: 5px;
+}
+
+.delete-option.remove-modifier::before {
+    font-family: 'MUI-Icons';
+    font-style: normal;
+    speak: none;
+    font-weight: normal;
+    font-size: 18px;
+    -webkit-font-smoothing: antialiased;
+    content: '\e07f';
+    color: #b7b3ad;
+}
+
+#insert-variable-popup .row-modifier {
+    margin-left: 2%;
+    width: 96%;
+    padding: 0;
+    display: none;
+}
+
+#insert-variable-popup .row-modifier.show {
+    display: block;
+}
+
+#profile_template_html {
+    display: none;
+}
+
+.CodeMirror.cm-s-default {
+    border: 1px solid #ddd;
+    height: 500px;
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+.cm-overlay.cm-liquid-variable {
+    color: brown;
+}
+
+.cm-overlay.cm-liquid-method {
+    color: #ffbb00;
+}
+
+#fields-map .params {
+    width: 50%;
+    float: left;
+}
+
+#fields-map input.modifier-param {
+    width: 20%;
+    margin: 0 20px;
+}
+
+#fields-map .modifier select {
+    margin-top: 5px;
+}
+
+#fields-map .modifier-collapse i {
+    color: #9e9e9e;
+}
+
+#fields-map .modifier-group {
+    margin-left: 50px;
+}
+
+#fields-map .col-row.row {
+    margin: 0;
+}
+
+#fields-map .modifier {
+    margin: 0;
+}
+
+#fields-map .field-col.row {
+    background-color: white;
+    border: 1px solid #f1f1f1;
+}
+
+#fields-map .modifier .row {
+    border-top: 3px solid white;
+    margin: 0;
+}
+
+#fields-map {
+    clear: both;
+}
+
+#fields-map .fields-header__type, #fields-map .fields-header__value {
+    float: left;
+    font-weight: 700;
+}
+
+#fields-map .fields-header__type {
+    float: left;
+    font-weight: 700;
+    width: 10%;
+    margin-right: 50px;
+}
+
+#fields-map .fields-header__name {
+    float: left;
+    font-weight: 700;
+    width: 13%;
+    margin: 0 50px 0 25px;
+}
+
+#fields-map .col-drag, #fields-map .col-name, #fields-map .col-type, #fields-map .col-value {
+    max-width: 40%;
+    float: left;
+    margin: 0 25px;
+}
+
+#fields-map .col-value select {
+    max-width: 100%;
+}
+
+#fields-map .col-name {
+    width: 13%;
+    margin-right: 25px;
+}
+
+#fields-map .modifier .row select {
+    float: left;
+    width: 200px;
+    margin-right: 50px;
+}
+
+#fields-map select.item-modifier-value {
+    float: left;
+    max-width: 40%;
+    margin: 5px;
+    margin-left: 210px;
+}
+
+#fields-map .item-name {
+    float: left;
+    margin: 5px;
+}
+
+#fields-map .remove-modifier {
+    background: transparent;
+    border: none;
+}
+
+#fields-map .remove-modifier span {
+    display: none;
+}
+
+#fields-map .remove-modifier::before {
+    font-family: 'MUI-Icons';
+    font-style: normal;
+    speak: none;
+    font-weight: normal;
+    font-size: 18px;
+    -webkit-font-smoothing: antialiased;
+    content: '\e07f';
+    color: #b7b3ad;
+}
+
+#fields-map .remove-modifier:hover {
+    text-decoration: none;
+}
+
+#fields-map .item-container, #fields-map .item-modifier-group {
+    margin-left: 25px;
+}
+
+#fields-map .add-modifier {
+    float: right;
+    margin: 5px;
+}
+
+#fields-map a.remove-item.btn {
+    float: right;
+    margin: 5px 55px 5px 5px;
+}
+
+#fields-map .col-add-item {
+    float: right;
+    margin: 2px 20px 2px;
+}
+
+#fields-map .col-type {
+    width: 10%;
+    margin-right: 25px;
+}
+
+#fields-map .col-remove, #fields-map .col-collapsible, #fields-map .col-add-modifier {
+    float: right;
+    margin: 2px 10px 0 0;
+}
+
+#fields-map .row {
+    background: #f1f1f1;
+    line-height: 3;
+    margin-top: 5px;
+}
+
+#load-template.loading, #reset-flag.loading {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+a.btn, input.btn {
+    background-color: #dbdbdb;
+    color: #514943;
+    border: 1px solid #adadad;
+    padding: 0.6rem 1em 0.6rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.36;
+    cursor: pointer;
+}
+
+a.btn.primary, input.btn.primary {
+    background-color: #eb5202;
+    border-color: #eb5202;
+    color: #ffffff;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.25);
+}
+
+#profile_secret_key_clone ~ .addafter {
+    opacity: 1;
+}
+
+#profile_check_connect ~ .addafter {
+    pointer-events: none;
+}
+
+.disabled {
+    pointer-events: none;
+    background-color: #e9e9e9 !important;
+    border-color: #adadad;
+    color: #303030;
+    opacity: .5;
+    cursor: not-allowed;
+}
+
+.loader-small {
+    display: none;
+    position: absolute;
+    top: 0;
+    border: 5px solid #f3f3f3;
+    animation: spin 1s linear infinite;
+    border-top: 5px solid #555;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+}
+
+.mp-index-item{
+    position: relative;
+}
+
+.mp-index-item .index-icon {
+    padding-left: 3px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+label.addafter {
+    padding-left: 2%;
+    background-color: #ffffff !important;
+    opacity: 1 !important;
+}
+
+#profile_export_limit, #profile_export_limit-error {
+    width: 50%;
+}

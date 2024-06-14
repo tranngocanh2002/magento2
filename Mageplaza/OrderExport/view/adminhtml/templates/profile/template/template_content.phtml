@@ -1,0 +1,126 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_OrderExport
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+use Mageplaza\OrderExport\Block\Adminhtml\Profile\Edit\Tab\Renderer\TemplateContent;
+use Mageplaza\OrderExport\Helper\Data;
+
+?>
+<?php
+/* @var $block TemplateContent */
+$element            = $block->getElement();
+$note               = $element->getNote() ? '<div class="note">' . $element->getNote() . '</div>' : '';
+$elementBeforeLabel = $element->getExtType() == 'checkbox' || $element->getExtType() == 'radio';
+$addOn              = $element->getBeforeElementHtml() || $element->getAfterElementHtml();
+$fieldId            = ($element->getHtmlContainerId()) ? ' id="' . $element->getHtmlContainerId() . '"' : '';
+$fieldClass         = "admin__field field field-{$element->getId()} {$element->getCssClass()}";
+$fieldClass        .= ($elementBeforeLabel) ? ' choice' : '';
+$fieldClass        .= ($addOn) ? ' with-addon' : '';
+$fieldClass        .= ($element->getRequired()) ? ' _required' : '';
+$fieldClass        .= ($note) ? ' with-note' : '';
+
+$fieldAttributes = $fieldId . ' class="' . $fieldClass . '" ' . $block->getUiId('form-field', $element->getId());
+$modifiersData   = $block->getModifier() ? Data::jsonEncode($block->getModifier()) : '{}';
+$fieldsList      = $block->getFieldsList() ? $block->getFieldsList() : '{}';
+
+if (!$element->getNoDisplay()) : ?>
+    <?php if ($element->getType() == 'hidden') : ?>
+        <?= $element->getElementHtml() ?>
+    <?php else : ?>
+        <div <?= /** noEscape */ $fieldAttributes ?>>
+            <?php if ($elementBeforeLabel) : ?>
+                <?= $element->getElementHtml() ?>
+                <?= $element->getLabelHtml('', $element->getScopeLabel()) ?>
+                <?= /** noEscape */ $note ?>
+            <?php else : ?>
+                <?= $element->getLabelHtml('', $element->getScopeLabel()) ?>
+                <div class="admin__field-control control">
+                    <a id="insert-variable" class="btn"><?= $block->escapeHtml(__('Insert Variables')) ?></a>
+                    <?= ($addOn) ?
+                        '<div class="addon">' . $element->getElementHtml() . '</div>' : $element->getElementHtml(); ?>
+                    <?= $block->getHintHtml() ?>
+                    <?= /** noEscape */ $note ?>
+                </div>
+            <?php endif; ?>
+        </div>
+    <?php endif; ?>
+<?php endif; ?>
+<div id="insert-variable-popup" class="admin__scope-old">
+    <?php $profileAttrCollection = $block->getProfileAttrCollection(); ?>
+    <?php foreach ($profileAttrCollection as $id => $groupAttr) : ?>
+        <div class="section-config">
+            <div class="entry-edit-head admin__collapsible-block">
+                <span id="ox_variable_<?= /** noEscape */ $id ?>-link" class="entry-edit-head-link"></span>
+                <a id="ox_variable_<?= /** noEscape */ $id ?>-head" href="#ox_variable_<?= /** noEscape */ $id ?>-link"
+                   onclick="Fieldset.toggleCollapse('ox_variable_<?= /** noEscape */ $id ?>'); return false;">
+                    <?= $block->escapeHtml($groupAttr['label']) ?>
+                </a>
+            </div>
+            <input id="ox_provider_<?= /** noEscape */ $id ?>-state" type="hidden">
+
+            <fieldset class="config admin__collapsible-block admin__scope-old"
+                      id="ox_variable_<?= /** noEscape */ $id ?>"
+                      attr-type="<?= $block->escapeHtmlAttr($groupAttr['type']) ?>">
+                <?php foreach ($groupAttr['values'] as $attr) : ?>
+                    <?php /** @var \Magento\Eav\Model\Entity\Attribute $attr */ ?>
+                    <div class="attr-code" id="<?= /** noEscape */ $attr['COLUMN_NAME'] ?>"
+                         code="<?= /** noEscape */ $attr['COLUMN_NAME'] ?>">
+                        <div class="row">
+                            <label class="attr-code-label">
+                                <?= $block->escapeHtml(ucwords(str_replace('_', ' ', $attr['COLUMN_NAME'])) . " ({$attr['COLUMN_NAME']})") ?>
+                            </label>
+                            <button class="insert"><?= $block->escapeHtml(__('Add')) ?></button>
+                            <button class="add-modifier"><?= $block->escapeHtml(__('Add Filter')) ?></button>
+                            <label class="liquid-variable">{{ <?= $block->escapeHtmlAttr($groupAttr['type'] . '.' . $attr['COLUMN_NAME']) ?>
+                                }}</label>
+                        </div>
+                        <div class="row-modifier">
+                            <div class="modifier-group" code="<?= $block->escapeHtmlAttr($attr['COLUMN_NAME']) ?>"></div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </fieldset>
+        </div>
+        <script type="text/javascript">//<![CDATA[
+            require(['prototype'], function () {
+                Fieldset.applyCollapse('ox_variable_<?= /** noEscape */ $id ?>');
+            });
+            //]]>
+        </script>
+    <?php endforeach; ?>
+</div>
+<script type="text/x-magento-init">
+        {
+            "*": {
+                "Mageplaza_OrderExport/js/profile/initTemplateTab":{
+                    "url": "<?= /** noEscape */ $block->getUrl('mporderexport/manageprofiles/loadtemplate', ['form_key' => $block->getFormKey()]) ?>",
+                    "checkConnectionUrl" : "<?= /** noEscape */ $block->getUrl('mporderexport/manageprofiles/checkconnection', ['form_key' => $block->getFormKey()]) ?>",
+                    "fieldsMap": <?= /** noEscape */ $fieldsList ?>,
+                    "modifiersData": <?= /** noEscape */ $modifiersData ?>,
+                    "profileType": "<?= /** noEscape */ $block->getProfileType() ?>",
+                    "previewUrl": "<?= /** noEscape */ $block->getUrl('mporderexport/manageprofiles/preview') ?>",
+                    "resetFlagUrl": "<?= /** noEscape */ $block->getUrl('mporderexport/manageprofiles/resetflag', ['form_key' => $block->getFormKey()]) ?>",
+                    "defaultTemplate": <?= /** noEscape */ $block->getDefaultTemplate() ?>
+                },
+                "Mageplaza_OrderExport/js/validate" : {},
+                "Mageplaza_OrderExport/js/form/validate" : {}
+            }
+        }
+</script>

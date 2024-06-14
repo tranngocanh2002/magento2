@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+  <table name="mageplaza_orderexport_profile" resource="default" engine="innodb" comment="Order Export Profile Table">
+    <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" identity="true" comment="Profile Id"/>
+    <column xsi:type="varchar" name="name" nullable="false" length="255" comment="Profile Name"/>
+    <column xsi:type="int" name="status" padding="11" unsigned="false" nullable="false" identity="false" comment="Profile Status"/>
+    <column xsi:type="varchar" name="file_name" nullable="false" length="255" comment="File Name"/>
+    <column xsi:type="varchar" name="profile_type" nullable="false" length="255" comment="File Name"/>
+    <column xsi:type="int" name="add_timestamp" padding="11" unsigned="false" nullable="false" identity="false" comment="Add Time Stamp To File Name"/>
+    <column xsi:type="varchar" name="secret_key" nullable="false" length="255" comment="secret Key"/>
+    <column xsi:type="int" name="send_mail_after_export" padding="11" unsigned="false" nullable="false" identity="false" comment="Send Mail After Export"/>
+    <column xsi:type="int" name="auto_run" padding="11" unsigned="false" nullable="false" identity="false" comment="Auto Run Profile Depending On Cron"/>
+    <column xsi:type="varchar" name="cron_schedule" nullable="true" length="255" comment="Cron Schedule"/>
+    <column xsi:type="varchar" name="file_type" nullable="false" length="64" comment="File Type"/>
+    <column xsi:type="int" name="export_type" padding="11" unsigned="false" nullable="true" identity="false" comment="Export Type"/>
+    <column xsi:type="mediumtext" name="template_html" nullable="true" comment="Template Html"/>
+    <column xsi:type="mediumtext" name="fields_list" nullable="true" comment="Field List"/>
+    <column xsi:type="varchar" name="field_separate" nullable="true" length="64" comment="Field Separate"/>
+    <column xsi:type="varchar" name="field_around" nullable="true" length="64" comment="Field Around"/>
+    <column xsi:type="int" name="include_header" padding="11" unsigned="false" nullable="true" identity="false" comment="Show Column Header"/>
+    <column xsi:type="varchar" name="status_condition" nullable="false" length="64" comment="Status Condition"/>
+    <column xsi:type="varchar" name="customer_groups" nullable="false" length="64" comment="Customer Groups"/>
+    <column xsi:type="varchar" name="store_ids" nullable="false" length="255" comment="Stores"/>
+    <column xsi:type="varchar" name="change_stt" nullable="true" length="32" comment="Change Status"/>
+    <column xsi:type="timestamp" name="created_from" on_update="false" nullable="true" comment="Created From"/>
+    <column xsi:type="timestamp" name="created_to" on_update="false" nullable="true" comment="Created To"/>
+    <column xsi:type="int" name="order_id_from" padding="11" unsigned="false" nullable="true" identity="false" comment="Order Id From"/>
+    <column xsi:type="int" name="order_id_to" padding="11" unsigned="false" nullable="true" identity="false" comment="Order Id To"/>
+    <column xsi:type="int" name="item_id_from" padding="11" unsigned="false" nullable="true" identity="false" comment="Item Id From"/>
+    <column xsi:type="int" name="item_id_to" padding="11" unsigned="false" nullable="true" identity="false" comment="Item Id To"/>
+    <column xsi:type="int" name="export_duplicate" padding="11" unsigned="false" nullable="false" identity="false" comment="Export Duplicate"/>
+    <column xsi:type="text" name="exported_ids" nullable="true" comment="Exported Ids"/>
+    <column xsi:type="mediumtext" name="conditions_serialized" nullable="true" comment="Attribute Conditions"/>
+    <column xsi:type="timestamp" name="last_cron" on_update="false" nullable="true" comment="Last Cron"/>
+    <column xsi:type="int" name="upload_enable" padding="11" unsigned="false" nullable="true" identity="false" comment="Delivery Enable"/>
+    <column xsi:type="varchar" name="upload_type" nullable="true" length="64" comment="Delivery Config: Protocol"/>
+    <column xsi:type="varchar" name="host_name" nullable="true" length="255" comment="Delivery Config: Host Name"/>
+    <column xsi:type="varchar" name="user_name" nullable="true" length="255" comment="Delivery Config: User Name"/>
+    <column xsi:type="varchar" name="password" nullable="true" length="255" comment="Delivery Config: Password"/>
+    <column xsi:type="varchar" name="passive_mode" nullable="true" length="64" comment="Delivery Config: Passive Mode"/>
+    <column xsi:type="varchar" name="directory_path" nullable="true" length="255" comment="Delivery Config: Directory Path"/>
+    <column xsi:type="int" name="email_enable" padding="11" unsigned="false" nullable="true" identity="false" comment="Email Enable"/>
+    <column xsi:type="varchar" name="sender" nullable="true" length="255" comment="Email Sender"/>
+    <column xsi:type="varchar" name="email_subject" nullable="true" length="255" comment="Email Subject"/>
+    <column xsi:type="varchar" name="send_email_to" nullable="true" length="255" comment="Email To"/>
+    <column xsi:type="varchar" name="email_template" nullable="true" length="255" comment="Email Template"/>
+    <column xsi:type="int" name="http_enable" padding="11" unsigned="false" nullable="true" identity="false" comment="HTTP Request Enable"/>
+    <column xsi:type="varchar" name="http_url" nullable="true" length="255" comment="HTTP Request Url"/>
+    <column xsi:type="text" name="http_header" nullable="true" comment="HTTP Request Header"/>
+    <column xsi:type="varchar" name="last_generated_file" nullable="true" length="255" comment="Last Generated File"/>
+    <column xsi:type="timestamp" name="last_generated" on_update="false" nullable="true" comment="Last Generated"/>
+    <column xsi:type="int" name="last_generated_product_count" padding="11" unsigned="false" nullable="true" identity="false" comment="Last Generated Product Count"/>
+    <column xsi:type="timestamp" name="created_at" on_update="false" nullable="true" default="CURRENT_TIMESTAMP" comment="Created At"/>
+    <column xsi:type="timestamp" name="updated_at" on_update="false" nullable="true" default="CURRENT_TIMESTAMP" comment="Update At"/>
+    <column xsi:type="varchar" name="export_limit" nullable="true" length="255" comment="Export Limit"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="id"/>
+    </constraint>
+  </table>
+  <table name="mageplaza_orderexport_defaulttemplate" resource="default" engine="innodb" comment="Default Template Table">
+    <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" identity="true" comment="Template Id"/>
+    <column xsi:type="varchar" name="name" nullable="false" length="255" comment="Template Name"/>
+    <column xsi:type="varchar" name="title" nullable="false" length="255" comment="Template Title"/>
+    <column xsi:type="varchar" name="profile_type" nullable="false" length="255" comment="Template Title"/>
+    <column xsi:type="varchar" name="file_type" nullable="false" length="64" comment="Type"/>
+    <column xsi:type="mediumtext" name="template_html" nullable="true" comment="Template Html"/>
+    <column xsi:type="mediumtext" name="fields_list" nullable="true" comment="Field Map"/>
+    <column xsi:type="varchar" name="field_separate" nullable="true" length="64" comment="Field Separate"/>
+    <column xsi:type="varchar" name="field_around" nullable="true" length="64" comment="Field Around"/>
+    <column xsi:type="int" name="include_header" padding="11" unsigned="false" nullable="true" identity="false" comment="Include Field Header"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="id"/>
+    </constraint>
+  </table>
+  <table name="mageplaza_orderexport_history" resource="default" engine="innodb" comment="Profile History Table">
+    <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" identity="true" comment="Log Id"/>
+    <column xsi:type="int" name="profile_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Profile Id"/>
+    <column xsi:type="varchar" name="name" nullable="true" length="255" comment="Profile Name"/>
+    <column xsi:type="varchar" name="generate_status" nullable="true" length="64" comment="Generate Status"/>
+    <column xsi:type="varchar" name="delivery_status" nullable="true" length="64" comment="Upload Status"/>
+    <column xsi:type="varchar" name="type" nullable="false" length="64" comment="Execution Type"/>
+    <column xsi:type="varchar" name="file" nullable="true" length="255" comment="File"/>
+    <column xsi:type="int" name="product_count" padding="11" unsigned="false" nullable="true" identity="false" comment="Product Count"/>
+    <column xsi:type="text" name="message" nullable="true" comment="Message"/>
+    <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Created At"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="id"/>
+    </constraint>
+    <constraint xsi:type="foreign" referenceId="FK_387C62B7E23157B0E35F84CEEDF620EA" table="mageplaza_orderexport_history" column="profile_id" referenceTable="mageplaza_orderexport_profile" referenceColumn="id" onDelete="CASCADE"/>
+    <index referenceId="MAGEPLAZA_ORDEREXPORT_HISTORY_PROFILE_ID" indexType="btree">
+      <column name="profile_id"/>
+    </index>
+  </table>
+</schema>

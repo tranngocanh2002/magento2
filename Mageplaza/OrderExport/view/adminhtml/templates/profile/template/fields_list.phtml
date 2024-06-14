@@ -1,0 +1,99 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_OrderExport
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+?>
+<?php
+/* @var $block \Mageplaza\OrderExport\Block\Adminhtml\Profile\Edit\Tab\Renderer\TemplateContent */
+$element            = $block->getElement();
+$note               = $element->getNote() ? '<div class="note">' . $element->getNote() . '</div>' : '';
+$elementBeforeLabel = $element->getExtType() == 'checkbox' || $element->getExtType() == 'radio';
+$addOn              = $element->getBeforeElementHtml() || $element->getAfterElementHtml();
+$fieldId            = ($element->getHtmlContainerId()) ? ' id="' . $element->getHtmlContainerId() . '"' : '';
+$fieldClass         = "admin__field field field-{$element->getId()} {$element->getCssClass()}";
+$fieldClass         .= ($elementBeforeLabel) ? ' choice' : '';
+$fieldClass         .= ($addOn) ? ' with-addon' : '';
+$fieldClass         .= ($element->getRequired()) ? ' _required' : '';
+$fieldClass         .= ($note) ? ' with-note' : '';
+
+$fieldAttributes = $fieldId . ' class="' . $fieldClass . '" ' . $block->getUiId('form-field', $element->getId());
+
+if (!$element->getNoDisplay()) : ?>
+    <?php if ($element->getType() == 'hidden') : ?>
+        <?= $element->getElementHtml() ?>
+    <?php else : ?>
+        <div<?= /** @noEscape */ $fieldAttributes ?>>
+            <?php if ($elementBeforeLabel) : ?>
+                <?= $element->getElementHtml() ?>
+                <?= $element->getLabelHtml('', $element->getScopeLabel()) ?>
+                <?= /** @noEscape */ $note ?>
+            <?php else : ?>
+                <?= $element->getLabelHtml('', $element->getScopeLabel()) ?>
+                <div class="admin__field-control control" style="display: none">
+                    <?= ($addOn) ?
+                        '<div class="addon">' . $element->getElementHtml() . '</div>' : $element->getElementHtml(); ?>
+                    <?= $block->getHintHtml() ?>
+                    <?= /** @noEscape */ $note ?>
+                </div>
+                <?php $profileAttrCollection = $block->getProfileAttrCollection(); ?>
+                <div id="select-attr" style="display: none">
+                    <option value="0"><?= $block->escapeHtml(__('--Please Select--')) ?></option>
+                    <?php foreach ($profileAttrCollection as $key => $groupAttr) : ?>
+                        <?php if ($key == 'item') {
+                            continue;
+                        } ?>
+                        <optgroup attr-type="<?= /** @noEscape */ $groupAttr['type'] ?>"
+                                  label="<?= /** @noEscape */ $groupAttr['label'] ?>">
+                            <?= $block->escapeHtml($key . '. ' . $groupAttr['label']) ?>
+                            <?php foreach ($groupAttr['values'] as $attr) : ?>
+                                <?php /** @var \Magento\Eav\Model\Entity\Attribute $attr */ ?>
+                                <option value="<?= /** @noEscape */ $attr['COLUMN_NAME'] ?>">
+                                    <?= $block->escapeHtml(ucwords(str_replace('_', ' ', $attr['COLUMN_NAME'])) . "({$attr['COLUMN_NAME']})") ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </optgroup>
+                    <?php endforeach; ?>
+                </div>
+                <div id="item-select-attr" style="display: none">
+                    <option value="0"><?= $block->escapeHtml(__('--Please Select--')) ?></option>
+                    <?php foreach ($profileAttrCollection['item']['values'] as $attr) : ?>
+                        <?php /** @var \Magento\Eav\Model\Entity\Attribute $attr */ ?>
+                        <option value="<?= /** @noEscape */ $attr['COLUMN_NAME'] ?>">
+                            <?= $block->escapeHtml(ucwords(str_replace('_', ' ', $attr['COLUMN_NAME'])) . "({$attr['COLUMN_NAME']})") ?>
+                        </option>
+                    <?php endforeach; ?>
+                </div>
+                <div id="fields-map" class="admin__scope-old">
+                    <div class="fields-header">
+                        <div class="row">
+                            <div class="fields-header__name"><?= $block->escapeHtml(__('Column Name')) ?></div>
+                            <div class="fields-header__type"><?= $block->escapeHtml(__('Type')) ?></div>
+                            <div class="fields-header__value"><?= $block->escapeHtml(__('Value')) ?></div>
+                        </div>
+                    </div>
+                    <div class="fields-col"></div>
+                    <a id="add-column" class="btn primary"><?= $block->escapeHtml(__('Add')) ?></a>
+                </div>
+            <?php endif; ?>
+        </div>
+    <?php endif; ?>
+<?php endif; ?>
+
+
+

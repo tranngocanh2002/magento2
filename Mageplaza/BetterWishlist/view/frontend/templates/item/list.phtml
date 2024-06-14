@@ -1,0 +1,47 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php
+/** @var \Magento\Wishlist\Block\Customer\Wishlist\Items $block */
+$columns = $block->getColumns();
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$productRepository = $objectManager->get(\Magento\Catalog\Api\ProductRepositoryInterface::class);
+//dd(get_class_methods($block->setInStockFilter(true)));
+//$block->getItems()
+//dd($block);
+//dd(get_class_methods($block));
+?>
+
+<div class="products-grid wishlist">
+    <?php if (count($block->getItems())) : ?>
+        <ol class="product-items">
+            <?php foreach ($block->getItems() as $item) : ?>
+<!--            --><?php //dd($block->getItems());?>
+                <li data-row="product-item" class="product-item" id="item_<?= $block->escapeHtmlAttr($item->getId()) ?>"
+                    style="
+                    <?php if ($productRepository->getById($item['product_id'])->getData('is_salable') == 0): ?>
+                        opacity: 0.4;
+                    <?php endif; ?>
+                        "
+                >
+                    <div class="product-item-info" data-container="product-grid">
+                        <?php foreach ($columns as $column) : ?>
+                            <?= $column->setItem($item)->toHtml();?>
+                        <?php endforeach; ?>
+                    </div>
+                </li>
+            <?php endforeach; ?>
+        </ol>
+    <?php else : ?>
+        <div class="message info empty">
+            <span><?= $block->escapeHtml(__('This Wish List has no Items')) ?></span>
+        </div>
+    <?php endif; ?>
+</div>
+
+<?php foreach ($columns as $column) : ?>
+    <?= $column->getAdditionalHtml() ?>
+<?php endforeach; ?>

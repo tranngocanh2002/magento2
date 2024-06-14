@@ -1,0 +1,358 @@
+Abs,Abs
+Append,Append
+"At Least","At Least"
+"At Most","At Most"
+Capitalize,Capitalize
+Ceil,Ceil
+Date,Date
+"Date Format","Date Format"
+Default,Default
+"Divided By","Divided By"
+"Lower Case","Lower Case"
+Escape,Escape
+"Escape once","Escape once"
+Floor,Floor
+Join,Join
+"Join By","Join By"
+"Left Trim","Left Trim"
+Minus,Minus
+Modulo,Modulo
+"Replace new line to <br","Replace new line to <br"
+Plus,Plus
+Prepend,Prepend
+Remove,Remove
+"Remove First","Remove First"
+Replace,Replace
+Search,Search
+"Replace First","Replace First"
+"Reverse Array","Reverse Array"
+Round,Round
+Count,Count
+"Right Trim","Right Trim"
+"Array Size","Array Size"
+Slice,Slice
+From,From
+To,To
+"Array Sort","Array Sort"
+"Trim Text","Trim Text"
+"Strip Html Tags","Strip Html Tags"
+"Strip New Line","Strip New Line"
+Times,Times
+Truncate,Truncate
+"Append Last","Append Last"
+"Truncate Words","Truncate Words"
+Words,Words
+"Uppercase first character of each word ","Uppercase first character of each word "
+"Unique Id Of Array","Unique Id Of Array"
+"Upper Case","Upper Case"
+"Decode Url","Decode Url"
+"Encode Url","Encode Url"
+Price,Price
+"If Empty","If Empty"
+"Add New","Add New"
+Order,Order
+Invoice,Invoice
+Creditmemo,Creditmemo
+Shipment,Shipment
+"Save and Continue Edit","Save and Continue Edit"
+Generate,Generate
+Delivery,Delivery
+Save,Save
+"Save & Generate","Save & Generate"
+"Save/Generate & Delivery","Save/Generate & Delivery"
+Conditions,Conditions
+"Invoice status","Invoice status"
+"Creditmemo status","Creditmemo status"
+"Order status","Order status"
+"Customer Groups","Customer Groups"
+"Store Views","Store Views"
+"Change order status","Change order status"
+"Change order status after being generated","Change order status after being generated"
+"Created From","Created From"
+"Created To","Created To"
+"Order Id From","Order Id From"
+"Order Id To","Order Id To"
+" Id From"," Id From"
+" Id To"," Id To"
+"Apply the rule only if following conditions are met(leave blank for all items)","Apply the rule only if following conditions are met(leave blank for all items)"
+"Export Duplicate","Export Duplicate"
+"Reset Flag","Reset Flag"
+"If chose ""No"", the item which has already been exported will not be exported again.","If chose ""No"", the item which has already been exported will not be exported again."
+"Upload to a remote server","Upload to a remote server"
+Enable,Enable
+Type,Type
+"Passive Mode","Passive Mode"
+Hostname,Hostname
+"It can be IP address or hostname. You can add port at the end of hostname. E.g. sftp.domain.com:22. No need add port with FTP type","It can be IP address or hostname. You can add port at the end of hostname. E.g. sftp.domain.com:22. No need add port with FTP type"
+"User Name","User Name"
+Password,Password
+"Directory Path","Directory Path"
+"Full path of a directory. E.g: /var/www/path/to/your-folder/","Full path of a directory. E.g: /var/www/path/to/your-folder/"
+"Check Connection","Check Connection"
+Email,Email
+Sender,Sender
+"Email Subject","Email Subject"
+"Send Email To","Send Email To"
+"Separated by commas "","".
+                An email with an exported file attachment will be sent to this address after it is generated.
+                Compatible with Mageplaza <a href=""https://www.mageplaza.com/magento-2-smtp/"" target=""_blank"">SMTP</a>","Separated by commas "","".
+                An email with an exported file attachment will be sent to this address after it is generated.
+                Compatible with Mageplaza <a href=""https://www.mageplaza.com/magento-2-smtp/"" target=""_blank"">SMTP</a>"
+"Email Template","Email Template"
+"HTTP Request","HTTP Request"
+URL,URL
+Headers,Headers
+"Rows separated by line breaks, Keys and Values separated by colon "":"". For example: : <br>
+            Content-Type: javascript/json <br>
+            Content_length: 200
+            ","Rows separated by line breaks, Keys and Values separated by colon "":"". For example: : <br>
+            Content-Type: javascript/json <br>
+            Content_length: 200
+            "
+"General Information","General Information"
+Name,Name
+Status,Status
+"File Name","File Name"
+"Add timestamp to file name","Add timestamp to file name"
+"The timestamp will be added to the end of file name.
+                You will keep all the exported files on the server.
+                If no, the old file with the same name will be overridden","The timestamp will be added to the end of file name.
+                You will keep all the exported files on the server.
+                If no, the old file with the same name will be overridden"
+"Export Limit","Export Limit"
+"Use Config","Use Config"
+"Private Download URL","Private Download URL"
+"Secret Key","Secret Key"
+"Reset Key","Reset Key"
+"Number of exported orders","Number of exported orders"
+Schedule,Schedule
+"Auto run profile","Auto run profile"
+"Cron schedule","Cron schedule"
+"How to config <a href=""https://www.mageplaza.com/faqs/how-configure-cronjob.html"" target=""_blank"">cron</a>","How to config <a href=""https://www.mageplaza.com/faqs/how-configure-cronjob.html"" target=""_blank"">cron</a>"
+General,General
+ID,ID
+"Generation status","Generation status"
+Download,Download
+Message,Message
+"Generation time","Generation time"
+Logs,Logs
+"%1 General Attributes","%1 General Attributes"
+"%1 Customer Attributes","%1 Customer Attributes"
+"%1 Shipping Attributes","%1 Shipping Attributes"
+"%1 Discount Attributes","%1 Discount Attributes"
+"%1 Total Attributes","%1 Total Attributes"
+"Store Attributes","Store Attributes"
+"%1 Tax Attributes","%1 Tax Attributes"
+"Other %1 Attributes","Other %1 Attributes"
+"Item Attributes","Item Attributes"
+"Shipping Address Attributes","Shipping Address Attributes"
+"Billing Address Attributes","Billing Address Attributes"
+Templates,Templates
+"File Type","File Type"
+"Select a file type for the profile","Select a file type for the profile"
+"Export Type","Export Type"
+"Select export type for the profile","Select export type for the profile"
+"Default Template","Default Template"
+"Load Template","Load Template"
+"Select a template for the profile","Select a template for the profile"
+"Template Content","Template Content"
+"Supports <a href=""https://shopify.github.io/liquid/"" target=""_blank"">Liquid template</a>","Supports <a href=""https://shopify.github.io/liquid/"" target=""_blank"">Liquid template</a>"
+"Fields List","Fields List"
+"Separated by","Separated by"
+"Around by","Around by"
+"Show Column Header","Show Column Header"
+"Download first 5 items","Download first 5 items"
+"PROFILE INFORMATION","PROFILE INFORMATION"
+CSV,CSV
+"Excel XML","Excel XML"
+"Profile %1","Profile %1"
+"Profile %1 has been generated successfully","Profile %1 has been generated successfully"
+"Something went wrong while generating profile %1","Something went wrong while generating profile %1"
+Success,Success
+Error,Error
+"A total of %1 record(s) have been updated.","A total of %1 record(s) have been updated."
+"Profile %1 has been uploaded successfully","Profile %1 has been uploaded successfully"
+"Something went wrong while sending http request in profile %1. %2","Something went wrong while sending http request in profile %1. %2"
+"Something went wrong while processing profile %1. %2","Something went wrong while processing profile %1. %2"
+"The profile no longer exists.","The profile no longer exists."
+"Profile Logs","Profile Logs"
+"The Profile has been deleted.","The Profile has been deleted."
+"Profile to delete was not found.","Profile to delete was not found."
+"Please enable delivery","Please enable delivery"
+"The profile has been uploaded successfully","The profile has been uploaded successfully"
+"Something went wrong while uploading the profile. %1","Something went wrong while uploading the profile. %1"
+"Profile no longer exits","Profile no longer exits"
+"Something wrong when download file: %1","Something wrong when download file: %1"
+Profile,Profile
+"Edit %1 profile","Edit %1 profile"
+"New Profile","New Profile"
+"Manage Profiles","Manage Profiles"
+"Please correct the data sent.","Please correct the data sent."
+"Something went wrong while saving the Profile.","Something went wrong while saving the Profile."
+"Something went wrong while deleting for %1.","Something went wrong while deleting for %1."
+"A total of %1 record(s) have been deleted.","A total of %1 record(s) have been deleted."
+"Something went wrong while generating Profile %1","Something went wrong while generating Profile %1"
+"Profile %1 has been delivered successfully","Profile %1 has been delivered successfully"
+"Something went wrong while updating status for %1.","Something went wrong while updating status for %1."
+"Invalid email format  in `Send Email To`","Invalid email format  in `Send Email To`"
+"Please enter Create Form value less than Create To value","Please enter Create Form value less than Create To value"
+"The profile has been saved.","The profile has been saved."
+"The profile has been generated successfully","The profile has been generated successfully"
+"Something went wrong while generating the profile. %1","Something went wrong while generating the profile. %1"
+"Profile does not exits","Profile does not exits"
+"Wrong key","Wrong key"
+"Something wrong when download file. %1","Something wrong when download file. %1"
+"Cannot connect to server. Please try again later.","Cannot connect to server. Please try again later."
+"Please check the Delivery information again.","Please check the Delivery information again."
+"Unable to open SFTP connection as %1@%2","Unable to open SFTP connection as %1@%2"
+"Something went wrong while generating feed","Something went wrong while generating feed"
+"Unknown template type","Unknown template type"
+"Invalid email format.","Invalid email format."
+"Generate Successfully","Generate Successfully"
+"Generation Error","Generation Error"
+"Deliver Successfully","Deliver Successfully"
+"Delivery Error","Delivery Error"
+"Duplicate Order","Duplicate Order"
+"Not Duplicate Order","Not Duplicate Order"
+"Profile %1 is generated successfully","Profile %1 is generated successfully"
+"Profile %1 fails to be generated","Profile %1 fails to be generated"
+"Profile %1 is delivery successfully","Profile %1 is delivery successfully"
+"Profile %1 fails to be delivered","Profile %1 fails to be delivered"
+"File exported by profile %1. You can download it in the attachment.","File exported by profile %1. You can download it in the attachment."
+"%1 send you exported file","%1 send you exported file"
+"Subtotal (Excl. Tax)","Subtotal (Excl. Tax)"
+"Subtotal (Incl. Tax)","Subtotal (Incl. Tax)"
+"Total Items Quantity","Total Items Quantity"
+"Total Weight","Total Weight"
+"Payment Method","Payment Method"
+"Shipping Method","Shipping Method"
+"Shipping Postcode","Shipping Postcode"
+"Shipping Region","Shipping Region"
+"Shipping State/Province","Shipping State/Province"
+"Shipping Country","Shipping Country"
+"Customer ID","Customer ID"
+"Customer ID Guest","Customer ID Guest"
+"Customer Note Notify","Customer Note Notify"
+"Customer Dob","Customer Dob"
+"Customer Email","Customer Email"
+"Customer First Name","Customer First Name"
+"Customer  Last Name","Customer  Last Name"
+"Customer Middle Name","Customer Middle Name"
+"Customer  Prefix","Customer  Prefix"
+"Customer Suffix","Customer Suffix"
+"Customer Taxvat","Customer Taxvat"
+"Ext Customer ID","Ext Customer ID"
+"Customer Note","Customer Note"
+"Customer Gender","Customer Gender"
+"Paypal Ipn Customer Notified","Paypal Ipn Customer Notified"
+"Invoice Attribute","Invoice Attribute"
+"Shipment Attribute","Shipment Attribute"
+"Creditmemo Attribute","Creditmemo Attribute"
+"Order Attribute","Order Attribute"
+"Product attribute combination","Product attribute combination"
+"Products subselection","Products subselection"
+"Conditions combination","Conditions combination"
+"Quantity in invoice","Quantity in invoice"
+"Price in invoice","Price in invoice"
+"Row total in invoice","Row total in invoice"
+"Quantity in creditmemo","Quantity in creditmemo"
+"Price in creditmemo","Price in creditmemo"
+"Row total in creditmemo","Row total in creditmemo"
+"Quantity in shipment","Quantity in shipment"
+"Price in shipment","Price in shipment"
+"Row total in shipment","Row total in shipment"
+"Quantity in order","Quantity in order"
+"Price in order","Price in order"
+"Row total in order","Row total in order"
+"Category (Parent only)","Category (Parent only)"
+"Category (Children Only)","Category (Children Only)"
+"(Parent Only)","(Parent Only)"
+"(Children Only)","(Children Only)"
+"Invoice Item Attribute","Invoice Item Attribute"
+"Creditmemo Item Attribute","Creditmemo Item Attribute"
+"Shipment Item Attribute","Shipment Item Attribute"
+"Order Item Attribute","Order Item Attribute"
+"Conditions Combination","Conditions Combination"
+"Product Attribute","Product Attribute"
+FOUND,FOUND
+"NOT FOUND","NOT FOUND"
+invoice,invoice
+shipment,shipment
+creditmemo,creditmemo
+order,order
+"If an item is %1 in the %2 with %3 of these conditions true:","If an item is %1 in the %2 with %3 of these conditions true:"
+"total quantity","total quantity"
+"total amount","total amount"
+is,is
+"is not","is not"
+"equals or greater than","equals or greater than"
+"equals or less than","equals or less than"
+"greater than","greater than"
+"less than","less than"
+"is one of","is one of"
+"is not one of","is not one of"
+"If %1 %2 %3 for a subselection of items in %4 matching %5 of these conditions:","If %1 %2 %3 for a subselection of items in %4 matching %5 of these conditions:"
+"--Please Select--","--Please Select--"
+"Column Name","Column Name"
+Value,Value
+Add,Add
+"Insert Variables","Insert Variables"
+"Add Filter","Add Filter"
+"%store_name sent you a Profile generate notify","%store_name sent you a Profile generate notify"
+"Store Name: %store_name","Store Name: %store_name"
+"Store Code: %store_code","Store Code: %store_code"
+"Data Profile Activities","Data Profile Activities"
+"This is an automated email sent from Mageplaza Order Export and notice you of the activities during generating profiles","This is an automated email sent from Mageplaza Order Export and notice you of the activities during generating profiles"
+%mes,%mes
+"View Logs","View Logs"
+%subject,%subject
+"Exported Profile ","Exported Profile "
+"This is an automated email send from Mageplaza Order Export and send you the exported file","This is an automated email send from Mageplaza Order Export and send you the exported file"
+"Please enter the correct cron format.","Please enter the correct cron format."
+"Generate Completed","Generate Completed"
+Ok,Ok
+"Prepare Generate","Prepare Generate"
+"Prepare Products Data","Prepare Products Data"
+"Generate Profile","Generate Profile"
+"Generating Profile...","Generating Profile..."
+Cancel,Cancel
+"Are you sure to stop generate?","Are you sure to stop generate?"
+Downloading,Downloading
+Resetting,Resetting
+"This profile has been reset","This profile has been reset"
+"Profile does not exits.","Profile does not exits."
+"Insert Variable","Insert Variable"
+Loading...,Loading...
+Checking...,Checking...
+"The connection has succeeded.","The connection has succeeded."
+"The connection has failed.","The connection has failed."
+Attribute,Attribute
+Pattern,Pattern
+Item,Item
+"Add Modifier","Add Modifier"
+"Add Item Attribute","Add Item Attribute"
+"Order Export","Order Export"
+"Select <b>Yes</b> to enable this module","Select <b>Yes</b> to enable this module"
+"Log Cleaning Automatically after(Day)","Log Cleaning Automatically after(Day)"
+"If empty or zero, the Email log will not be cleaned.","If empty or zero, the Email log will not be cleaned."
+"Limits the number of orders that can be exported in a single iteration. If empty or zero, no limitation","Limits the number of orders that can be exported in a single iteration. If empty or zero, no limitation"
+"Email Alert","Email Alert"
+"To avoid sending to spam box, you should install <a href=""https://www.mageplaza.com/magento-2-smtp/"" target=""_blank"">SMTP</a>","To avoid sending to spam box, you should install <a href=""https://www.mageplaza.com/magento-2-smtp/"" target=""_blank"">SMTP</a>"
+"Send to","Send to"
+"Separated by commas (,)","Separated by commas (,)"
+When,When
+"Profile Name","Profile Name"
+File,File
+"Created Date","Created Date"
+Delete,Delete
+"Delete Profiles","Delete Profiles"
+"Are you sure you want to delete selected profiles?","Are you sure you want to delete selected profiles?"
+"Generate And Delivery","Generate And Delivery"
+"Generate Profiles","Generate Profiles"
+"Are you sure you want to generate selected profiles? It will take a few minutes","Are you sure you want to generate selected profiles? It will take a few minutes"
+"Change status","Change status"
+Disable,Disable
+Object,Object
+"Run Mode","Run Mode"
+"Generated On","Generated On"
+Edit,Edit

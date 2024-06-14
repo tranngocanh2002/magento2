@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_OrderExport
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Mageplaza_OrderExport::css/lib/codemirror.css"/>
+        <css src="Mageplaza_OrderExport::css/form/edit-profile.css"/>
+        <css src="Mageplaza_Core::css/font-awesome.min.css"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Mageplaza\OrderExport\Block\Adminhtml\Profile\Edit\SaveOptions" name="save_options_list"/>
+            <block class="Mageplaza\OrderExport\Block\Adminhtml\Profile\Edit" name="mageplaza_orderexport_profile_edit"/>
+        </referenceContainer>
+        <referenceContainer name="left">
+            <block class="Mageplaza\OrderExport\Block\Adminhtml\Profile\Edit\Tabs" name="mageplaza_orderexport_profile_tabs">
+                <block class="Mageplaza\OrderExport\Block\Adminhtml\Profile\Edit\Tab\General" name="mageplaza_orderexport_profile_tab_general"/>
+                <block class="Mageplaza\OrderExport\Block\Adminhtml\Profile\Edit\Tab\Template" name="mageplaza_orderexport_profile_tab_template"/>
+                <block class="Mageplaza\OrderExport\Block\Adminhtml\Profile\Edit\Tab\Conditions" name="mageplaza_orderexport_profile_tab_conditions">
+                </block>
+                <block class="Mageplaza\OrderExport\Block\Adminhtml\Profile\Edit\Tab\Delivery" name="mageplaza_orderexport_profile_tab_delivery"/>
+                <block class="Mageplaza\OrderExport\Block\Adminhtml\Profile\Edit\Tab\History" name="mageplaza_orderexport_profile_tab_history"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">profile</argument>
+                    <argument name="block" xsi:type="string">mageplaza_orderexport_profile_tab_general</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">template</argument>
+                    <argument name="block" xsi:type="string">mageplaza_orderexport_profile_tab_template</argument>
+                </action>
+
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">conditions</argument>
+                    <argument name="block" xsi:type="string">mageplaza_orderexport_profile_tab_conditions</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">delivery</argument>
+                    <argument name="block" xsi:type="string">mageplaza_orderexport_profile_tab_delivery</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">history</argument>
+                    <argument name="block" xsi:type="string">mageplaza_orderexport_profile_tab_history</argument>
+                </action>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

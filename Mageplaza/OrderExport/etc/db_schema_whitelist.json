@@ -1,0 +1,99 @@
+{
+    "mageplaza_orderexport_profile": {
+        "column": {
+            "id": true,
+            "name": true,
+            "status": true,
+            "file_name": true,
+            "profile_type": true,
+            "add_timestamp": true,
+            "secret_key": true,
+            "send_mail_after_export": true,
+            "auto_run": true,
+            "cron_schedule": true,
+            "file_type": true,
+            "export_type": true,
+            "template_html": true,
+            "fields_list": true,
+            "field_separate": true,
+            "field_around": true,
+            "include_header": true,
+            "status_condition": true,
+            "customer_groups": true,
+            "store_ids": true,
+            "change_stt": true,
+            "created_from": true,
+            "created_to": true,
+            "order_id_from": true,
+            "order_id_to": true,
+            "item_id_from": true,
+            "item_id_to": true,
+            "export_duplicate": true,
+            "exported_ids": true,
+            "conditions_serialized": true,
+            "last_cron": true,
+            "upload_enable": true,
+            "upload_type": true,
+            "host_name": true,
+            "user_name": true,
+            "password": true,
+            "passive_mode": true,
+            "directory_path": true,
+            "email_enable": true,
+            "sender": true,
+            "email_subject": true,
+            "send_email_to": true,
+            "email_template": true,
+            "http_enable": true,
+            "http_url": true,
+            "http_header": true,
+            "last_generated_file": true,
+            "last_generated": true,
+            "last_generated_product_count": true,
+            "created_at": true,
+            "updated_at": true,
+            "export_limit": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "mageplaza_orderexport_defaulttemplate": {
+        "column": {
+            "id": true,
+            "name": true,
+            "title": true,
+            "profile_type": true,
+            "file_type": true,
+            "template_html": true,
+            "fields_list": true,
+            "field_separate": true,
+            "field_around": true,
+            "include_header": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "mageplaza_orderexport_history": {
+        "column": {
+            "id": true,
+            "profile_id": true,
+            "name": true,
+            "generate_status": true,
+            "delivery_status": true,
+            "type": true,
+            "file": true,
+            "product_count": true,
+            "message": true,
+            "created_at": true
+        },
+        "index": {
+            "MAGEPLAZA_ORDEREXPORT_HISTORY_PROFILE_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "FK_387C62B7E23157B0E35F84CEEDF620EA": true
+        }
+    }
+}
