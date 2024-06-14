@@ -19,6 +19,11 @@
  */
 
 var config = {
+    map: {
+        '*': {
+            'Mageplaza_BetterWishlist/js/toolbar': 'Mageplaza_BetterWishlist/js/toolbar'
+        }
+    },
     config: {
         mixins: {
             'mage/redirect-url': {

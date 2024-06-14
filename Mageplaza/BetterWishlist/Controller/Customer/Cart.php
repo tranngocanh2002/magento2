@@ -233,6 +233,11 @@ class Cart extends AbstractIndex
 
         // Set qty
         $qty = $this->getRequest()->getParam('qty');
+        if ($qty == 0) {
+//            $this->messageManager->addErrorMessage(__('Q > 0'));
+            return $resultRedirect->setPath('wishlist/index/');
+        }
+
         if (is_array($qty)) {
             $qty = isset($qty[$itemId]) ? $qty[$itemId] : 1;
         }
@@ -240,6 +245,7 @@ class Cart extends AbstractIndex
         if ($qty) {
             $item->setQty($qty);
         }
+
 
         $redirectUrl  = $this->_url->getUrl('wishlist/index');
         $categoryId   = $this->getRequest()->getParam('fromCategoryId') ?: 'all';

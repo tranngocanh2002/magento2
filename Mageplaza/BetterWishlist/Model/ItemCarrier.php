@@ -193,18 +193,22 @@ class ItemCarrier
                 $item->unsProduct();
 
                 // Set qty
-                if (isset($qtys[$item->getId()])) {
-                    $qty = $this->quantityProcessor->process($qtys[$item->getId()]);
-                    if ($qty) {
-                        $item->setQty($qty);
-                    }
-                }
+//                if (isset($qtys[$item->getId()])) {
+//                    $qty = $this->quantityProcessor->process($qtys[$item->getId()]);
+//                    if ($qty) {
+//                        $item->setQty($qty);
+//                    }
+//                }
+                $qty = $this->quantityProcessor->process($qtys[$item->getId()]);
                 $item->getProduct()->setDisableAddToCart($disableAddToCart);
                 // Add to cart
-                if ($item->addToCart($cart)) {
-                    $addedProducts[] = $item->getProduct();
-                    if ($this->helperData->isRemoveAfterAddToCart($this->storeManager->getStore()->getId())) {
-                        $this->deleteItem($categoryId, $item->getId());
+//                dd($qty);
+                if ($qty > 0) {
+                    if ($item->addToCart($cart)) {
+                        $addedProducts[] = $item->getProduct();
+                        if ($this->helperData->isRemoveAfterAddToCart($this->storeManager->getStore()->getId())) {
+                            $this->deleteItem($categoryId, $item->getId());
+                        }
                     }
                 }
             } catch (LocalizedException $e) {

@@ -80,6 +80,7 @@ define(
                     this.editCatEnterObs();
                     this.deleteCatObs();
                     this.changeCatObs();
+                    // this.sort();
                     this.copyProductObs();
                     this.moveProductObs();
                     this.deleteProduct();
@@ -334,6 +335,7 @@ define(
                 },
                 changeCatObs: function () {
                     var self = this;
+                    var queryString = window.location.search, urlParams = new URLSearchParams(queryString), product_list_dir = urlParams.get('product_list_dir');
 
                     categoryTableEl.on('click', '.action-dropdown-menu-link', function (e) {
                             var parentEl = $(this).parents('li'),
@@ -342,10 +344,63 @@ define(
                             e.stopPropagation();
                             e.preventDefault();
                             self.changeActiveCat(this);
-                            self.ajaxLoadWishlist(self.options.wishlistUrl,viewId);
+                            // self.ajaxLoadWishlist(self.options.wishlistUrl,viewId);
+                            $.ajax(
+                                {
+                                    url: self.options.wishlistUrl,
+                                    method: 'POST',
+                                    showLoader: true,
+                                    data: {
+                                        type: 'load',
+                                        fromCategoryId: viewId,
+                                        product_list: product_list_dir
+                                    },
+                                    success: function (res) {
+                                        self.resetProductGrid(res);
+                                        $('.page.messages .messages').html('');
+                                    },
+                                    error: function () {
+                                        self.reloadPage();
+                                    }
+                                }
+                            );
                         }
                     );
                 },
+                // sort: function () {
+                //     var self = this;
+                //     var queryString = window.location.search, urlParams = new URLSearchParams(queryString), product_list_dir = urlParams.get('product_list_dir');
+                //
+                //     categoryTableEl.on('click', '[data-role="direction-switcher"]', function (e) {
+                //             var parentEl = $(this).parents('li'),
+                //                 viewId   = parentEl.attr('id');
+                //
+                //             e.stopPropagation();
+                //             e.preventDefault();
+                //             self.changeActiveCat(this);
+                //             // self.ajaxLoadWishlist(self.options.wishlistUrl,viewId);
+                //             $.ajax(
+                //                 {
+                //                     url: self.options.wishlistUrl,
+                //                     method: 'POST',
+                //                     showLoader: true,
+                //                     data: {
+                //                         type: 'load',
+                //                         fromCategoryId: 1,
+                //                         product_list: 1
+                //                     },
+                //                     success: function (res) {
+                //                         self.resetProductGrid(res);
+                //                         $('.page.messages .messages').html('');
+                //                     },
+                //                     error: function () {
+                //                         self.reloadPage();
+                //                     }
+                //                 }
+                //             );
+                //         }
+                //     );
+                // },
                 toolbarObs: function(){
                     var self = this;
 

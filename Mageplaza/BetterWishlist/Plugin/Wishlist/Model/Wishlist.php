@@ -115,6 +115,9 @@ class Wishlist
             return $result;
         }
 
+        $sortOrder = $this->request->getParam('product_list');
+//        dd($sortOrder);
+
         if ($categoryId && $categoryId !== 'all'
             && $this->request->getFullActionName() !== 'mpwishlist_customer_addtowishlist') {
             $result->getSelect()->joinLeft(
@@ -122,6 +125,10 @@ class Wishlist
                 'main_table.wishlist_item_id = mp_wl_item.wishlist_item_id',
                 ['qty' => 'mp_wl_item.qty', 'mp_qty' => 'mp_wl_item.qty']
             )->where('mp_wl_item.category_id = ?', $categoryId);
+        }
+        if ($sortOrder != null) {
+//            $result->getSelect()->order('main_table.wishlist_item_id' . $sortOrder);
+            $result->setOrderByProductName($sortOrder);
         }
 
         return $result;
